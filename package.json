@@ -1,0 +1,44 @@
+{
+  "name": "revolut-exchange-screen",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://lilianabulgaru3pg@github.com/lilianabulgaru3pg/revolut-exchange-screen.git",
+  "author": "Liliana Bulgaru",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --inline",
+    "build": "webpack --mode production",
+    "test": "jest --coverage --watchAll",
+    "lint": "eslint ./src --fix"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.19.1",
+    "react-hot-loader": "^4.12.18",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "html-loader": "^0.5.5",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
