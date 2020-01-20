@@ -11,6 +11,6 @@
       "prettier/prettier": ["error"],
       "import/no-extraneous-dependencies": 0,
       "react/jsx-filename-extension": 0,
-      "react/prop-types": 1
+      "react/prop-types": 0
     }
   }
