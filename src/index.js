@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './components/App';
+import store from './store';
+import registerServiceWorker from './registerServiceWorker';
 
-const title = 'Revolut';
 ReactDOM.render(
-  <App title={title} />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root'),
 );
+registerServiceWorker();
 
 module.hot.accept();
