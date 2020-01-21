@@ -24,9 +24,15 @@ const SELECT_TO_CURRENCY = 'SELECT_TO_CURRENCY';
 const availableBalace = 500;
 const exchangeTitle = 'Exchange';
 
+const inputFromType = 'from';
+const inputToType = 'to';
+
+const FETCH_INTERVAL = 10000;
+
 export {
   SYMBOL,
   CURRENCIES,
+  FETCH_INTERVAL,
   DEFAULT_TO_CURRENCY,
   USER_DEFAULT_BASE_CURRENCY,
   SELECT_BASE_CURRENCY,
@@ -36,4 +42,6 @@ export {
   ENABLE_EXCHANGE_BTN,
   DISABLE_EXCHANGE_BTN,
   EB_BASE_URL,
+  inputFromType,
+  inputToType,
 };

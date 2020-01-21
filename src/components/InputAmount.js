@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const AmountInput = ({
   classes,
   autoFocus,
-  value,
+  inputVal,
   onInputChange,
 }) => {
   return (
@@ -15,30 +15,27 @@ const AmountInput = ({
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      onChange={e => onInputChange(e)}
-      // onFocus: () => setFocued(true),
-      // onBlur: () => setFocued(false),
+      onChange={({ target: { value } }) => onInputChange(value)}
       pattern="[0-9.]*"
       spellCheck={false}
       type="text"
-      value={value}
+      value={inputVal}
       autoFocus={autoFocus}
+      placeholder="0"
     />
   );
 };
 
 AmountInput.propTypes = {
-  onInputChange: PropTypes.func,
+  onInputChange: PropTypes.func.isRequired,
   classes: PropTypes.string,
   autoFocus: PropTypes.bool,
-  value: PropTypes.string,
+  inputVal: PropTypes.string.isRequired,
 };
 
 AmountInput.defaultProps = {
-  onInputChange: () => {},
   classes: '',
   autoFocus: false,
-  value: '',
 };
 
 export default AmountInput;

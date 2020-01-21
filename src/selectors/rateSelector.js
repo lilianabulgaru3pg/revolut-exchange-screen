@@ -1,4 +1,4 @@
-const getRateCurrency = ({
+const getRateInfo = ({
   user: {
     fromAccount: { symbol: from },
     toAccount: { symbol: to, currency },
@@ -9,4 +9,11 @@ const getRateCurrency = ({
     rates[currency] ? rates[currency].toFixed(4) : rates[currency]
   } ${to}`;
 
-export default getRateCurrency;
+const getRate = ({
+  user: {
+    toAccount: { currency },
+  },
+  rates,
+}) => rates[currency];
+
+export { getRateInfo, getRate };

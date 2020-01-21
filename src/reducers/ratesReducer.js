@@ -5,12 +5,12 @@ const INITIAL_STATE = {
   [USER_DEFAULT_BASE_CURRENCY]: 1.0,
 };
 
-const addRates = (state, action) => action.rates;
+const addRates = action => action.rates;
 
 function ratesReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case RATES_ADD:
-      return addRates(state, action);
+      return addRates(action);
     default:
       return state;
   }

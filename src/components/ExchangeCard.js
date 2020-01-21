@@ -7,14 +7,15 @@ import InputAmount from './InputAmount';
 
 const ExchangeCard = ({
   balance,
-  value,
+  inputVal,
   currency,
   onCurrencyChange,
+  onInputChange,
   id,
   currencies,
 }) => (
   <Grid container>
-    <Grid item sm={6}>
+    <Grid item sm={6} xs={12}>
       <Grid container direction="column">
         <Grid item>
           <SelectCurrency
@@ -29,16 +30,20 @@ const ExchangeCard = ({
         </Grid>
       </Grid>
     </Grid>
-    <Grid item sm={6}>
-      <InputAmount value={value} />
+    <Grid item sm={6} xs={12} dir="rtl">
+      <InputAmount
+        inputVal={inputVal}
+        onInputChange={onInputChange}
+      />
     </Grid>
   </Grid>
 );
 
 ExchangeCard.propTypes = {
   onCurrencyChange: PropTypes.func.isRequired,
+  onInputChange: PropTypes.func.isRequired,
   balance: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  inputVal: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
   currencies: PropTypes.objectOf(PropTypes.string).isRequired,
 };

@@ -9,14 +9,10 @@ import {
   doSelectBaseCurrency,
 } from '../actions/selectAction';
 
+// import { doDisplayInputChange } from '../actions/inputAction';
+
 function* handleBaseCurrency(action) {
   const { baseCurrency, toCurrency, prev } = action;
-  console.log(
-    'baseCurrency, toCurrency, prev',
-    baseCurrency,
-    toCurrency,
-    prev,
-  );
   let to = toCurrency;
   if (baseCurrency === toCurrency) {
     yield put(doChangeToSymbol(prev));

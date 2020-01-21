@@ -9,3 +9,9 @@ export const ENABLE_EXCHANGE_BTN = 'ENABLE_EXCHANGE_BTN';
 
 export const RATES_FETCH = 'RATES_FETCH';
 export const RATES_ADD = 'RATES_ADD';
+
+export const INPUT_FROM = 'INPUT_FROM';
+export const INPUT_TO = 'INPUT_TO';
+export const DISPLAY_INPUT_FROM = 'CHANGE_INPUT_FROM';
+export const DISPLAY_INPUT_TO = 'CHANGE_INPUT_TO';
+export const RESET_INPUTS = 'RESET_INPUTS';

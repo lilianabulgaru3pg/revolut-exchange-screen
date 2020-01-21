@@ -24,15 +24,19 @@ import {
 import {
   CURRENCIES,
   exchangeTitle,
+  inputFromType,
+  inputToType,
 } from '../constants/CommonConstants';
 
-import getRateCurrency from '../selectors/rateSelector';
+import { getInputFrom, getInputTo } from '../selectors/inputSelector';
+import { doInputChange } from '../actions/inputAction';
+import { getRateInfo, getRate } from '../selectors/rateSelector';
 import { doFetchRateForCurrency } from '../actions/ratesAction';
 
 class ExchangeContainer extends PureComponent {
   componentDidMount() {
-    const { getRate, baseCurrency, toCurrency } = this.props;
-    getRate({ from: baseCurrency, to: toCurrency });
+    const { fetchRate, baseCurrency, toCurrency } = this.props;
+    fetchRate({ from: baseCurrency, to: toCurrency });
   }
 
   render() {
@@ -45,9 +49,11 @@ class ExchangeContainer extends PureComponent {
       disabled,
       baseBalance,
       toBalance,
-      baseInput,
-      toInput,
-      rates,
+      inputFrom,
+      inputTo,
+      onInputChanges,
+      rate,
+      rateInfo,
     } = this.props;
 
     return (
@@ -65,11 +71,14 @@ class ExchangeContainer extends PureComponent {
                 to: toCurrency,
               })}
             balance={baseBalance}
-            value={baseInput}
+            inputVal={inputFrom}
             currencies={CURRENCIES}
+            onInputChange={val =>
+              onInputChanges({ val, rate, name: inputFromType })}
+            name={inputFromType}
             id="select-base-currency"
           />
-          <RateData rate={rates} />
+          <RateData rate={rateInfo} />
           <ExchangeCard
             currency={toCurrency}
             onCurrencyChange={to =>
@@ -79,8 +88,11 @@ class ExchangeContainer extends PureComponent {
                 prev: toCurrency,
               })}
             balance={toBalance}
-            value={toInput}
+            inputVal={inputTo}
             currencies={CURRENCIES}
+            onInputChange={val =>
+              onInputChanges({ val, rate, name: inputToType })}
+            type={inputToType}
             id="select-to-currency"
           />
           <ExchangeButton
@@ -100,7 +112,10 @@ const mapStateToProps = state => ({
   disabled: getExchangeBtnState(state),
   baseBalance: getBaseSymbol(state),
   toBalance: getToSymbol(state),
-  rates: getRateCurrency(state),
+  rateInfo: getRateInfo(state),
+  rate: getRate(state),
+  inputFrom: getInputFrom(state),
+  inputTo: getInputTo(state),
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -108,7 +123,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(doSelectBaseCurrency(value)),
   onToCurrencyChange: value => dispatch(doSelectToCurrency(value)),
   onExchangeBtnClick: () => dispatch(),
-  getRate: query => dispatch(doFetchRateForCurrency(query)),
+  fetchRate: query => dispatch(doFetchRateForCurrency(query)),
+  onInputChanges: value => dispatch(doInputChange(value)),
 });
 
 export default connect(
