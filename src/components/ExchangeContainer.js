@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Container from '@material-ui/core/Container';
 import { Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
@@ -28,7 +28,7 @@ import {
 import getRateCurrency from '../selectors/rateSelector';
 import { doFetchRateForCurrency } from '../actions/ratesAction';
 
-class ExchangeContainer extends Component {
+class ExchangeContainer extends PureComponent {
   componentDidMount() {
     const { getRate, baseCurrency, toCurrency } = this.props;
     getRate({ from: baseCurrency, to: toCurrency });
@@ -46,7 +46,7 @@ class ExchangeContainer extends Component {
       toBalance,
       baseInput,
       toInput,
-      rate,
+      rates,
     } = this.props;
 
     return (
@@ -63,7 +63,7 @@ class ExchangeContainer extends Component {
             currencies={CURRENCIES}
             id="select-base-currency"
           />
-          <RateData rate={rate} />
+          <RateData rate={rates} />
           <ExchangeCard
             currency={toCurrency}
             onCurrencyChange={onToCurrencyChange}
@@ -89,7 +89,7 @@ const mapStateToProps = state => ({
   disabled: getExchangeBtnState(state),
   baseBalance: getBaseSymbol(state),
   toBalance: getToSymbol(state),
-  rate: getRateCurrency(state),
+  rates: getRateCurrency(state),
 });
 
 const mapDispatchToProps = dispatch => ({

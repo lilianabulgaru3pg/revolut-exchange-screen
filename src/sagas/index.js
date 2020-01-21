@@ -1,4 +1,4 @@
-import { takeEvery, all } from 'redux-saga/effects';
+import { takeEvery, all, takeLatest } from 'redux-saga/effects';
 import {
   RATES_FETCH,
   SELECT_BASE_CURRENCY,
@@ -9,7 +9,7 @@ import { handleToCurrency, handleBaseCurrency } from './selectSaga';
 
 function* watchAll() {
   yield all([
-    takeEvery(RATES_FETCH, handleFetchRates),
+    takeLatest(RATES_FETCH, handleFetchRates),
     takeEvery(SELECT_BASE_CURRENCY, handleBaseCurrency),
     takeEvery(SELECT_TO_CURRENCY, handleToCurrency),
   ]);
