@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 import PropTypes from 'prop-types';
 
-// todo theme
+// todo addtheme
 const useStyles = makeStyles({
   grid: {
     marginTop: '5%',
@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-// todo generic btn
+// todo create generic btn
 const ExchangeButton = ({ onClick, disabled = false, title }) => {
   const classes = useStyles();
   return (

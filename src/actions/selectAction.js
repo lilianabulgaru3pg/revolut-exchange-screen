@@ -3,13 +3,17 @@ import {
   SELECT_TO_CURRENCY,
 } from '../constants/CommonConstants';
 
-const doSelectBaseCurrency = value => ({
+const doSelectBaseCurrency = ({ from, to, prev }) => ({
   type: SELECT_BASE_CURRENCY,
-  baseCurrency: value,
+  baseCurrency: from,
+  toCurrency: to,
+  prev,
 });
 
-const doSelectToCurrency = value => ({
+const doSelectToCurrency = ({ from, to, prev }) => ({
   type: SELECT_TO_CURRENCY,
-  toCurrency: value,
+  baseCurrency: from,
+  toCurrency: to,
+  prev,
 });
 export { doSelectBaseCurrency, doSelectToCurrency };

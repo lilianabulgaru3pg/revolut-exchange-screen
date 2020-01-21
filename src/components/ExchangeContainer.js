@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { PureComponent } from 'react';
 import Container from '@material-ui/core/Container';
 import { Grid } from '@material-ui/core';
@@ -36,8 +37,8 @@ class ExchangeContainer extends PureComponent {
 
   render() {
     const {
-      onBaseCurrencyChange,
       onToCurrencyChange,
+      onBaseCurrencyChange,
       onExchangeBtnClick,
       baseCurrency,
       toCurrency,
@@ -57,7 +58,12 @@ class ExchangeContainer extends PureComponent {
           </Grid>
           <ExchangeCard
             currency={baseCurrency}
-            onCurrencyChange={onBaseCurrencyChange}
+            onCurrencyChange={from =>
+              onBaseCurrencyChange({
+                prev: baseCurrency,
+                from,
+                to: toCurrency,
+              })}
             balance={baseBalance}
             value={baseInput}
             currencies={CURRENCIES}
@@ -66,7 +72,12 @@ class ExchangeContainer extends PureComponent {
           <RateData rate={rates} />
           <ExchangeCard
             currency={toCurrency}
-            onCurrencyChange={onToCurrencyChange}
+            onCurrencyChange={to =>
+              onToCurrencyChange({
+                from: baseCurrency,
+                to,
+                prev: toCurrency,
+              })}
             balance={toBalance}
             value={toInput}
             currencies={CURRENCIES}

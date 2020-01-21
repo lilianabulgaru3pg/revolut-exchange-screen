@@ -11,7 +11,7 @@ function* handleFetchRates(action) {
   while (true) {
     const result = yield call(fetchRates, query);
     yield put(doAddRates(result.rates));
-    yield delay(10000);
+    yield delay(100000); // should change to 10000
     yield put(doFetchRateForCurrency(query));
   }
 }
