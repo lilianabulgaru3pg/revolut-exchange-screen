@@ -1,6 +1,6 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import ExchangeContainer from './ExchangeContainer';
+import ExchangeContainer from './components/ExchangeContainer';
 
 const App = () => {
   return (
