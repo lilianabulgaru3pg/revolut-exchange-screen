@@ -6,7 +6,7 @@ const getRateInfo = ({
   rates,
 }) =>
   `1${from} = ${
-    rates[currency] ? rates[currency].toFixed(4) : rates[currency]
+    rates[currency] ? rates[currency].toFixed(4) : ''
   } ${to}`;
 
 const getRate = ({
