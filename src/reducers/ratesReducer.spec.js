@@ -15,7 +15,7 @@ describe('rates reducer', () => {
       type: RATES_ADD,
       rates,
     };
-    const previousState = { INITIAL_STATE };
+    const previousState = INITIAL_STATE;
     const expectedNewState = rates;
 
     deepFreeze(previousState);
