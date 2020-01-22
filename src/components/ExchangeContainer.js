@@ -74,7 +74,7 @@ class ExchangeContainer extends PureComponent {
             currencies={CURRENCIES}
             onInputChange={val =>
               onInputChanges({ val, name: inputFromType })}
-            name={inputFromType}
+            type={inputFromType}
             id="select-base-currency"
           />
           <RateData rate={rateInfo} />
