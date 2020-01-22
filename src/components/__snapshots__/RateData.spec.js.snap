@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RateData Component snapshot renders 1`] = `
+<div
+  className="MuiBox-root MuiBox-root-3 makeStyles-rate-1"
+>
+  <p
+    className="MuiTypography-root MuiTypography-body2 MuiTypography-colorPrimary"
+  >
+    1$ = 11.00 £
+  </p>
+</div>
+`;

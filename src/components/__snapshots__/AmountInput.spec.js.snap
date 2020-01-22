@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AmountInput Component snapshot renders 1`] = `
+<div
+  className="MuiTypography-root MuiTypography-body1"
+>
+  <input
+    autoCapitalize="off"
+    autoComplete="off"
+    autoCorrect="off"
+    autoFocus={true}
+    className="sc-AykKC exZWIY"
+    onChange={[Function]}
+    pattern="[0-9.]*"
+    placeholder="0"
+    type="number"
+    value={120}
+  />
+</div>
+`;

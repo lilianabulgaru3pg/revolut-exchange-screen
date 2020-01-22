@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrentBalance Component snapshot renders 1`] = `
+<h6
+  className="MuiTypography-root MuiTypography-subtitle2"
+>
+  Balance:
+   11.00 £
+</h6>
+`;

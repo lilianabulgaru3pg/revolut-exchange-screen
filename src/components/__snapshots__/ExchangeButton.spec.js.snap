@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExchangeButton Component snapshot renders 1`] = `
+<div
+  className="MuiGrid-root makeStyles-grid-1 MuiGrid-container MuiGrid-justify-xs-center"
+>
+  <button
+    aria-label="exchange"
+    className="MuiButtonBase-root MuiFab-root makeStyles-fab-2 MuiFab-extended MuiFab-secondary"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiFab-label"
+    >
+      Exchange
+    </span>
+  </button>
+</div>
+`;

@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import SelectCurrency from './SelectCurrency';
 import CurrentBalance from './CurrentBalance';
-import InputAmount from './InputAmount';
+import AmountInput from './AmountInput';
 
 import { inputFromType } from '../constants/CommonConstants';
 
@@ -35,7 +35,7 @@ const ExchangeCard = ({
       </Grid>
     </Grid>
     <Grid item sm={6} xs={12}>
-      <InputAmount
+      <AmountInput
         inputVal={inputVal}
         onInputChange={onInputChange}
         autoFocus={type === inputFromType}

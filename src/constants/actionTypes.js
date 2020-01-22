@@ -11,6 +11,8 @@ export const EXCHANGE = 'EXCHANGE';
 export const EXCHANGE_BALANCE = 'EXCHANGE_BALANCE';
 
 export const RATES_FETCH = 'RATES_FETCH';
+export const RATES_FETCH_ERROR = 'RATES_FETCH_ERROR';
+
 export const RATES_ADD = 'RATES_ADD';
 
 export const INPUT_FROM = 'INPUT_FROM';

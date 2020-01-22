@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExchangeCard Component snapshot renders 1`] = `
+<div
+  className="MuiGrid-root MuiGrid-container"
+>
+  <div
+    className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-item"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container"
+        >
+          <div
+            className="MuiGrid-root MuiGrid-item MuiGrid-grid-sm-12"
+          >
+            <div
+              className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-104"
+            >
+              <div
+                className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                onClick={[Function]}
+              >
+                <div
+                  aria-haspopup="listbox"
+                  aria-labelledby=" select-base-currency"
+                  className="MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+                  id="select-base-currency"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onMouseDown={[Function]}
+                  role="button"
+                  tabIndex={0}
+                >
+                  EUR
+                </div>
+                <input
+                  autoFocus={false}
+                  onAnimationStart={[Function]}
+                  type="hidden"
+                  value="EUR"
+                />
+                <svg
+                  aria-hidden="true"
+                  className="MuiSvgIcon-root MuiSelect-icon"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7 10l5 5 5-5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item"
+      >
+        <h6
+          className="MuiTypography-root MuiTypography-subtitle2 MuiTypography-colorError"
+        >
+          Balance:
+           11.00 £
+        </h6>
+      </div>
+    </div>
+  </div>
+  <div
+    className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+  >
+    <div
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      <input
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
+        autoFocus={true}
+        className="sc-AykKC exZWIY"
+        onChange={[Function]}
+        pattern="[0-9.]*"
+        placeholder="0"
+        type="number"
+        value={240}
+      />
+    </div>
+  </div>
+</div>
+`;
