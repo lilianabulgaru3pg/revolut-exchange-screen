@@ -11,6 +11,7 @@
     "build": "webpack --mode production",
     "test": "jest  --config ./jest.config.json ",
     "test:watch": "yarn run test -- --watch",
+    "test:coverage": "yarn run test -- --coverage",
     "test:cypress": "cypress run",
     "lint": "eslint ./src --fix"
   },
