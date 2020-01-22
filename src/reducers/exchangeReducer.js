@@ -10,9 +10,9 @@ const INITIAL_STATE = {
 const exchangeBtnReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case DISABLE_EXCHANGE_BTN:
-      return { ...state, isDisabled: true };
+      return { isDisabled: true };
     case ENABLE_EXCHANGE_BTN:
-      return { ...state, isDisabled: false };
+      return { isDisabled: false };
     default:
       return state;
   }
