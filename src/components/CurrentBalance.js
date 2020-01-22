@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 
-const CurrentBalance = ({ balance, err = false }) => (
+const CurrentBalance = ({ balance, err }) => (
   <Typography variant="subtitle2" color={err ? 'error' : 'initial'}>
     Balance:
     {balance}

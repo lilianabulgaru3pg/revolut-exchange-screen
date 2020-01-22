@@ -16,6 +16,7 @@ const ExchangeCard = ({
   id,
   currencies,
   type,
+  err,
 }) => (
   <Grid container>
     <Grid item sm={6} xs={12}>
@@ -29,7 +30,7 @@ const ExchangeCard = ({
           />
         </Grid>
         <Grid item>
-          <CurrentBalance balance={balance} err={false} />
+          <CurrentBalance balance={balance} err={err} />
         </Grid>
       </Grid>
     </Grid>
@@ -50,6 +51,7 @@ ExchangeCard.propTypes = {
   inputVal: PropTypes.number.isRequired,
   currency: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  err: PropTypes.bool.isRequired,
   currencies: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 export default ExchangeCard;

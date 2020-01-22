@@ -1,15 +1,13 @@
 import {
   DISABLE_EXCHANGE_BTN,
   ENABLE_EXCHANGE_BTN,
-} from '../constants/CommonConstants';
+} from '../constants/actionTypes';
 
-const doDisableBtn = value => ({
+const doDisableBtn = () => ({
   type: DISABLE_EXCHANGE_BTN,
-  isDisabled: value,
 });
 
-const doEnableBtn = value => ({
+const doEnableBtn = () => ({
   type: ENABLE_EXCHANGE_BTN,
-  isDisabled: value,
 });
 export { doDisableBtn, doEnableBtn };

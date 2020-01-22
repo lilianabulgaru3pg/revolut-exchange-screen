@@ -11,7 +11,7 @@ import {
   doSelectBaseCurrency,
   doSelectToCurrency,
 } from '../actions/selectAction';
-// import { doEnableBtn, doDisableBtn } from '../actions/exchangeAction';
+import { doExchange } from '../actions/userAction';
 import {
   getBaseCurrency,
   getToCurrency,
@@ -20,6 +20,8 @@ import getExchangeBtnState from '../selectors/exchangeSelector';
 import {
   getBaseSymbol,
   getToSymbol,
+  getBaseBalance,
+  getToBalance,
 } from '../selectors/userSelector';
 import {
   CURRENCIES,
@@ -43,16 +45,18 @@ class ExchangeContainer extends PureComponent {
     const {
       onToCurrencyChange,
       onBaseCurrencyChange,
-      onExchangeBtnClick,
+      onExchange,
       baseCurrency,
       toCurrency,
       disabled,
-      baseBalance,
-      toBalance,
+      baseSymbol,
+      toSymbol,
       inputFrom,
       inputTo,
       onInputChanges,
       rateInfo,
+      toBalance,
+      baseBalance,
     } = this.props;
 
     return (
@@ -69,12 +73,13 @@ class ExchangeContainer extends PureComponent {
                 from,
                 to: toCurrency,
               })}
-            balance={baseBalance}
+            balance={baseSymbol}
             inputVal={inputFrom}
             currencies={CURRENCIES}
             onInputChange={val =>
               onInputChanges({ val, name: inputFromType })}
             type={inputFromType}
+            err={inputFrom > baseBalance}
             id="select-base-currency"
           />
           <RateData rate={rateInfo} />
@@ -86,7 +91,8 @@ class ExchangeContainer extends PureComponent {
                 to,
                 prev: toCurrency,
               })}
-            balance={toBalance}
+            balance={toSymbol}
+            err={inputTo > toBalance}
             inputVal={inputTo}
             currencies={CURRENCIES}
             onInputChange={val =>
@@ -95,7 +101,7 @@ class ExchangeContainer extends PureComponent {
             id="select-to-currency"
           />
           <ExchangeButton
-            onClick={onExchangeBtnClick}
+            onExchange={onExchange}
             disabled={disabled}
             title={exchangeTitle}
           />
@@ -109,20 +115,22 @@ const mapStateToProps = state => ({
   baseCurrency: getBaseCurrency(state),
   toCurrency: getToCurrency(state),
   disabled: getExchangeBtnState(state),
-  baseBalance: getBaseSymbol(state),
-  toBalance: getToSymbol(state),
+  baseSymbol: getBaseSymbol(state),
+  toSymbol: getToSymbol(state),
   rateInfo: getRateInfo(state),
   inputFrom: getInputFrom(state),
   inputTo: getInputTo(state),
+  baseBalance: getBaseBalance(state),
+  toBalance: getToBalance(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   onBaseCurrencyChange: value =>
     dispatch(doSelectBaseCurrency(value)),
   onToCurrencyChange: value => dispatch(doSelectToCurrency(value)),
-  onExchangeBtnClick: () => dispatch(),
   fetchRate: query => dispatch(doFetchRateForCurrency(query)),
   onInputChanges: value => dispatch(doInputChange(value)),
+  onExchange: () => dispatch(doExchange()),
 });
 
 export default connect(

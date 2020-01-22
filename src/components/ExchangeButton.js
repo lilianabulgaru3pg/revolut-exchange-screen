@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 });
 
 // todo create generic btn
-const ExchangeButton = ({ onClick, disabled = false, title }) => {
+const ExchangeButton = ({ onExchange, disabled = false, title }) => {
   const classes = useStyles();
   return (
     <Grid container justify="center" className={classes.grid}>
@@ -26,7 +26,7 @@ const ExchangeButton = ({ onClick, disabled = false, title }) => {
         color="secondary"
         aria-label="exchange"
         className={classes.fab}
-        onClick={() => onClick()}
+        onClick={() => onExchange()}
         disabled={disabled}
       >
         {title}
@@ -36,7 +36,7 @@ const ExchangeButton = ({ onClick, disabled = false, title }) => {
 };
 
 ExchangeButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onExchange: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
 };

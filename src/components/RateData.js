@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
   rate: {
-    border: `2px solid grey`,
+    border: `2px solid #E6E6FA`,
     borderRadius: 25,
     width: '30%',
     padding: '5px 8px 4px 8px',

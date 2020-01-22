@@ -7,6 +7,8 @@ import {
 import {
   SELECT_TO_SYMBOL,
   SELECT_BASE_SYMBOL,
+  EXCHANGE,
+  EXCHANGE_BALANCE,
 } from '../constants/actionTypes';
 
 const initialBalance = [
@@ -54,12 +56,39 @@ const selectToSymbol = (state, action) => ({
   ),
 });
 
+const exchange = state => state;
+
+const exchangeBalance = (state, action) => {
+  const { from, to, amountFrom, amountTo } = action;
+  return {
+    ...state,
+    balance: state.balance.map(account => {
+      if (account.currency === from)
+        return {
+          ...account,
+          balance: account.balance - amountFrom,
+        };
+      if (account.currency === to)
+        return {
+          ...account,
+          balance: account.balance + amountTo,
+        };
+
+      return account;
+    }),
+  };
+};
+
 function userReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SELECT_TO_SYMBOL:
       return selectToSymbol(state, action);
     case SELECT_BASE_SYMBOL:
       return selectBaseSymbol(state, action);
+    case EXCHANGE:
+      return exchange(state);
+    case EXCHANGE_BALANCE:
+      return exchangeBalance(state, action);
     default:
       return state;
   }

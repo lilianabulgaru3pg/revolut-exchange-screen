@@ -1,6 +1,8 @@
 import {
   SELECT_TO_SYMBOL,
   SELECT_BASE_SYMBOL,
+  EXCHANGE,
+  EXCHANGE_BALANCE,
 } from '../constants/actionTypes';
 
 const doChangeBaseSymbol = value => ({
@@ -12,4 +14,23 @@ const doChangeToSymbol = value => ({
   type: SELECT_TO_SYMBOL,
   toCurrency: value,
 });
-export { doChangeBaseSymbol, doChangeToSymbol };
+
+const doExchange = () => ({
+  type: EXCHANGE,
+});
+
+const doExchangeBalance = (from, to, amountFrom, amountTo, rate) => ({
+  type: EXCHANGE_BALANCE,
+  from,
+  to,
+  amountFrom,
+  amountTo,
+  rate,
+});
+
+export {
+  doChangeBaseSymbol,
+  doChangeToSymbol,
+  doExchange,
+  doExchangeBalance,
+};

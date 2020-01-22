@@ -1,10 +1,10 @@
 import {
   ENABLE_EXCHANGE_BTN,
   DISABLE_EXCHANGE_BTN,
-} from '../constants/CommonConstants';
+} from '../constants/actionTypes';
 
 const INITIAL_STATE = {
-  isDisabled: true,
+  isDisabled: false,
 };
 
 const exchangeBtnReducer = (state = INITIAL_STATE, action) => {
