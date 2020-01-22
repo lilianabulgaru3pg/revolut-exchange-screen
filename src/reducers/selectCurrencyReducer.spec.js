@@ -71,7 +71,7 @@ describe('select currency reducer', () => {
     const previousState = INITIAL_STATE;
     const expectedNewState = {
       baseCurrency: from,
-      toCurrency: prev,
+      toCurrency: to,
     };
 
     deepFreeze(previousState);
