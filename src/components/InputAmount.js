@@ -1,6 +1,28 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const TextField = styled.input`
+  text-align: right;
+  color: #1e90ff;
+  caret-color: #1e90ff;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  background-color: transparent;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &:focus {
+    outline: none;
+  }
+`;
 
 const AmountInput = ({
   classes,
@@ -9,20 +31,20 @@ const AmountInput = ({
   onInputChange,
 }) => {
   return (
-    <TextField
-      className={classes}
-      margin="normal"
-      autoCapitalize="off"
-      autoComplete="off"
-      autoCorrect="off"
-      onChange={({ target: { value } }) => onInputChange(value)}
-      pattern="[0-9.]*"
-      spellCheck={false}
-      type="text"
-      value={inputVal}
-      autoFocus={autoFocus}
-      placeholder="0"
-    />
+    <Typography component="div">
+      <TextField
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
+        pattern="[0-9.]*"
+        type="number"
+        onChange={({ target: { value } }) => onInputChange(value)}
+        value={inputVal}
+        autoFocus={autoFocus}
+        className={classes}
+        placeholder="0"
+      />
+    </Typography>
   );
 };
 
@@ -30,7 +52,7 @@ AmountInput.propTypes = {
   onInputChange: PropTypes.func.isRequired,
   classes: PropTypes.string,
   autoFocus: PropTypes.bool,
-  inputVal: PropTypes.string.isRequired,
+  inputVal: PropTypes.number.isRequired,
 };
 
 AmountInput.defaultProps = {
