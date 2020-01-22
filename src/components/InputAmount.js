@@ -19,6 +19,9 @@ const TextField = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
+  &::-webkit-input-placeholder {
+    color: #b0c4de;
+  }
   &:focus {
     outline: none;
   }
@@ -39,7 +42,7 @@ const AmountInput = ({
         pattern="[0-9.]*"
         type="number"
         onChange={({ target: { value } }) => onInputChange(value)}
-        value={inputVal}
+        value={inputVal > 0 ? inputVal : ''}
         autoFocus={autoFocus}
         className={classes}
         placeholder="0"
