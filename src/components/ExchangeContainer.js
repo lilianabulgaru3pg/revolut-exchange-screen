@@ -30,7 +30,7 @@ import {
 
 import { getInputFrom, getInputTo } from '../selectors/inputSelector';
 import { doInputChange } from '../actions/inputAction';
-import { getRateInfo, getRate } from '../selectors/rateSelector';
+import { getRateInfo } from '../selectors/rateSelector';
 import { doFetchRateForCurrency } from '../actions/ratesAction';
 
 class ExchangeContainer extends PureComponent {
@@ -52,7 +52,6 @@ class ExchangeContainer extends PureComponent {
       inputFrom,
       inputTo,
       onInputChanges,
-      rate,
       rateInfo,
     } = this.props;
 
@@ -74,7 +73,7 @@ class ExchangeContainer extends PureComponent {
             inputVal={inputFrom}
             currencies={CURRENCIES}
             onInputChange={val =>
-              onInputChanges({ val, rate, name: inputFromType })}
+              onInputChanges({ val, name: inputFromType })}
             name={inputFromType}
             id="select-base-currency"
           />
@@ -91,7 +90,7 @@ class ExchangeContainer extends PureComponent {
             inputVal={inputTo}
             currencies={CURRENCIES}
             onInputChange={val =>
-              onInputChanges({ val, rate, name: inputToType })}
+              onInputChanges({ val, name: inputToType })}
             type={inputToType}
             id="select-to-currency"
           />
@@ -113,7 +112,6 @@ const mapStateToProps = state => ({
   baseBalance: getBaseSymbol(state),
   toBalance: getToSymbol(state),
   rateInfo: getRateInfo(state),
-  rate: getRate(state),
   inputFrom: getInputFrom(state),
   inputTo: getInputTo(state),
 });

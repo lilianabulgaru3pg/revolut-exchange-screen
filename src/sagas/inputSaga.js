@@ -1,8 +1,11 @@
-import { put } from 'redux-saga/effects';
+import { put, select } from 'redux-saga/effects';
 import { doDisplayInputChange } from '../actions/inputAction';
 
+import { getRate } from '../selectors/rateSelector';
+
 function* handleInputFrom(action) {
-  const { from, rate, name } = action;
+  const { from, name } = action;
+  const rate = yield select(getRate);
   console.log(
     'val, rate, type',
     from,
@@ -19,7 +22,8 @@ function* handleInputFrom(action) {
 }
 
 function* handleInputTo(action) {
-  const { to, rate, name } = action;
+  const { to, name } = action;
+  const rate = yield select(getRate);
   console.log('val, rate, type', to, rate, name, Number(to) / rate);
 
   yield put(

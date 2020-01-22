@@ -7,10 +7,10 @@ import {
 } from '../constants/actionTypes';
 import { inputFromType } from '../constants/CommonConstants';
 
-const doInputChange = ({ val, name, rate }) =>
+const doInputChange = ({ val, name }) =>
   name === inputFromType
-    ? { type: INPUT_FROM, from: Number(val), rate, name }
-    : { type: INPUT_TO, to: Number(val), rate, name };
+    ? { type: INPUT_FROM, from: Number(val), name }
+    : { type: INPUT_TO, to: Number(val), name };
 
 const doDisplayInputChange = ({ value, name }) =>
   name === inputFromType
