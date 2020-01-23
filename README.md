@@ -40,9 +40,6 @@ yarn test
 
 * Github: [@lilianabulgaru3pg](https://github.com/lilianabulgaru3pg)
 
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page]).
 
 ## Show your support
 
